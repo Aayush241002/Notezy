@@ -243,11 +243,8 @@ const Navbar = () => {
         <div className="sidebar-content p-3">
           {/* Logo */}
           <div className="mb-4 d-flex align-items-center" style={{alignContent:"center"}}>
-            <img
-              src="/logo192.png"
-              alt="logo"
-              style={{ width: "40px", height: "40px", marginRight: "0.5rem" }}
-            />
+            <i className="bi bi-journal-text" style={{fontSize:"2rem"}}></i>
+     
             <span className="fw-bold fs-5">Notezy</span>
           </div>
 

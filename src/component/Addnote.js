@@ -14,6 +14,7 @@ function Addnote() {
     pinned: false,
     favourite: false,
   });
+  const host = process.env.REACT_APP_API_HOST || 'http://localhost:5000';
 
   const [errors, setErrors] = useState({});
   const [isSummarized, setIsSummarized] = useState(false);
@@ -184,7 +185,7 @@ function Addnote() {
         setspinner(true);
       }
       try {
-        const res = await fetch("http://localhost:5000/api/notes/summarize", {
+        const res = await fetch(`${host}/api/notes/summarize`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -218,7 +219,7 @@ function Addnote() {
       }
       try {
         const res = await fetch(
-          "http://localhost:5000/api/notes/generatetitle",
+          `${host}/api/notes/generatetitle`,
           {
             method: "POST",
             headers: {

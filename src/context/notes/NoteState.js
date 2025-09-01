@@ -5,8 +5,7 @@ function NoteState(props) {
 
     const notesInitial = [];
     const [notes, setnotes] = useState(notesInitial)
-    const host = "http://localhost:5000";
-
+const host = process.env.REACT_APP_API_HOST || 'http://localhost:5000';
     const Getnotes = async () => {
         if (!localStorage.getItem("token")) {
             return;
@@ -126,7 +125,7 @@ function NoteState(props) {
 
     const summarizeNote = async (text) => {
         try {
-            const res = await fetch("http://localhost:5000/api/notes/summarize", {
+            const res = await fetch(`${host}/api/notes/summarize`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

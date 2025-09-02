@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function Login() {
     const [credentials, setCredentials] = useState({ email: "", password: "" });
     const [error, setError] = useState(""); // backend error
     const host = process.env.REACT_APP_API_HOST || 'http://localhost:5000';
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -22,7 +23,7 @@ function Login() {
 
         if (response.ok && json.authtoken) {
             localStorage.setItem("token", json.authtoken);
-            window.location.href = "/"; // or navigate('/')
+            navigate('/')
         } else {
             setError(json.error || "Something went wrong");
         }

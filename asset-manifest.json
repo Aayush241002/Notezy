@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Notezy/static/css/main.cc776d0a.css",
+    "main.js": "/Notezy/static/js/main.c7163dab.js",
+    "static/js/453.e862d0c4.chunk.js": "/Notezy/static/js/453.e862d0c4.chunk.js",
+    "static/media/bootstrap-icons.woff?": "/Notezy/static/media/bootstrap-icons.1295669cd4e305c97f2c.woff",
+    "static/media/bootstrap-icons.woff2?": "/Notezy/static/media/bootstrap-icons.92ea18a81d737146ff04.woff2",
+    "index.html": "/Notezy/index.html",
+    "main.cc776d0a.css.map": "/Notezy/static/css/main.cc776d0a.css.map",
+    "main.c7163dab.js.map": "/Notezy/static/js/main.c7163dab.js.map",
+    "453.e862d0c4.chunk.js.map": "/Notezy/static/js/453.e862d0c4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cc776d0a.css",
+    "static/js/main.c7163dab.js"
+  ]
+}

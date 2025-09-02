@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 function Signup() {
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "" });
     const [errors, setErrors] = useState([]); // array of backend errors
+    const host = process.env.REACT_APP_API_HOST || 'http://localhost:5000';
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setErrors([]); // clear old errors
 
-        const response = await fetch("http://localhost:5000/api/auth/createuser", {
+        const response = await fetch(`${host}/api/auth/createuser`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(credentials),

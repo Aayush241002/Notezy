@@ -24,7 +24,7 @@
     "server": "cd backend && npm run dev",
     "both": "concurrently \"npm start\" \"npm run server\"",
     "predeploy": "npm run build",
-    "deploy": "gh-pages-d build"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -48,4 +48,5 @@
     "concurrently": "^9.2.0",
     "gh-pages": "^6.3.0"
   }
+
 }

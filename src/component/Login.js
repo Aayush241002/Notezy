@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 function Login() {
     const [credentials, setCredentials] = useState({ email: "", password: "" });
     const [error, setError] = useState(""); // backend error
+    const host = process.env.REACT_APP_API_HOST || 'http://localhost:5000';
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(""); // clear old error
 
-        const response = await fetch("http://localhost:5000/api/auth/login", {
+        const response = await fetch(`${host}/api/auth/login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -28,7 +29,7 @@ function Login() {
     };
 
     return (
-    <div className="justify-content-center main-content">
+        <div className="justify-content-center main-content">
             <div className="card shadow-lg bg-dark text-light">
                 <div className="card-body">
                     <h2 className="card-title text-center mb-4">🔑 Login</h2>
@@ -94,3 +95,4 @@ function Login() {
 }
 
 export default Login;
+// Triggering deploy

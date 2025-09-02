@@ -12,6 +12,7 @@ const Navbar = () => {
   const token = localStorage.getItem("token");
   const { setnotes, notes, Getnotes } = useContext(Notescontext);
   const { setCurrentTheme, themes } = useContext(ThemeContext);
+  const host = process.env.REACT_APP_API_HOST || 'http://localhost:5000';
 
 
 
@@ -23,7 +24,7 @@ const Navbar = () => {
 
   const handleThemeSelect = async (themeName) => {
     try {
-      const res = await fetch("http://localhost:5000/api/auth/theme", {
+      const res = await fetch(`${host}/api/auth/theme`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -31,7 +32,7 @@ const Navbar = () => {
         },
         body: JSON.stringify({ theme: themeName }),
       });
-      setCurrentTheme(themeName); 
+      setCurrentTheme(themeName);
       localStorage.setItem("theme", themeName);
 
       if (!res.ok) throw new Error("Failed to save theme");
@@ -242,9 +243,9 @@ const Navbar = () => {
       <div className="sidebar collapse d-lg-block" id="sidebarMenu">
         <div className="sidebar-content p-3">
           {/* Logo */}
-          <div className="mb-4 d-flex align-items-center" style={{alignContent:"center"}}>
-            <i className="bi bi-journal-text" style={{fontSize:"2rem"}}></i>
-     
+          <div className="mb-4 d-flex align-items-center" style={{ alignContent: "center" }}>
+            <i className="bi bi-journal-text" style={{ fontSize: "2rem" }}></i>
+
             <span className="fw-bold fs-5">Notezy</span>
           </div>
 
@@ -286,7 +287,7 @@ const Navbar = () => {
             {notes
               .filter((note) => note.deleted === false)
               .slice()
-              .sort((a, b) => new Date(b.lastUpdated) - new Date(a.lastUpdated))   
+              .sort((a, b) => new Date(b.lastUpdated) - new Date(a.lastUpdated))
               .map((note) => {
                 const isActive = location.pathname === `/edit/${note._id}`;
                 return (

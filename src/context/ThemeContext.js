@@ -5,6 +5,7 @@ export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
   const [currentTheme, setCurrentTheme] = useState("cyanBlue");
+const host = process.env.REACT_APP_API_HOST || 'http://localhost:5000';
 
   const themes = {
     default: "linear-gradient(135deg, #33464fff, #010e12ff)", // map backend default
@@ -25,7 +26,7 @@ export const ThemeProvider = ({ children }) => {
       if (!token) return; // skip if not logged in
 
       try {
-        const res = await fetch("http://localhost:5000/api/auth/theme", {
+        const res = await fetch(`${host}/api/auth/theme`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

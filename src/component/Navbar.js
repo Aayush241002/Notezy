@@ -20,7 +20,7 @@ const Navbar = () => {
     if (token) {
       Getnotes();
     }
-  }, [notes.length]);
+  }, [notes.length, token]);
 
   const handleThemeSelect = async (themeName) => {
     try {
